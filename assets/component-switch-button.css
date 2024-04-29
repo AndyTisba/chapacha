@@ -1,0 +1,53 @@
+input[type="checkbox"].switch-button {
+  display: none;
+}
+/* toggle in the OFF state */
+input[type="checkbox"].switch-button ~ label {
+  position: relative;
+  bottom: calc(0.25 * var(--switch-height));
+  display: block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  border-radius: 40px;
+  border: var(--switch-border-width) solid rgb(var(--color-button));
+  transition: transform 200ms cubic-bezier(0.41, -0.01, 0.63, 1.09);
+  cursor: pointer;
+  background: rgb(var(--color-background-contrast));
+}
+input[type="checkbox"].switch-button ~ label::before,
+input[type="checkbox"].switch-button ~ label::after {
+  position: absolute;
+  width: var(--button-width);
+  height: var(--button-width);
+  border-radius: 40px;
+  margin: var(--button-margin);
+  content: "";
+  transition: all 220ms cubic-bezier(0.76, 0.01, 0.15, 0.97);
+}
+input[type="checkbox"].switch-button.switch-shine ~ label::before {
+  background-image: linear-gradient(
+    45deg,
+    rgba(var(--shine-color), 0.2) 10%,
+    rgb(var(--shine-color)) 90%
+  );
+}
+input[type="checkbox"].switch-button ~ label::after {
+  background-color: rgb(var(--color-button));
+}
+
+/* toggle in the ON state */
+input[type="checkbox"].switch-button:checked ~ label {
+  border: var(--button-margin) solid #fff;
+  transform: scale(1.01);
+  box-shadow: 0 0 20px 10px rgb(var(--shine-color));
+  border-color: rgb(var(--shine-color));
+  background: #fff;
+}
+input[type="checkbox"].switch-button:checked ~ label::before {
+  width: var(--background-width);
+}
+input[type="checkbox"].switch-button:checked ~ label::after {
+  transform: translateX(var(--button-translate));
+  background-color: rgb(var(--shine-color));
+  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1);
+}

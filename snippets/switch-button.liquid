@@ -1,0 +1,27 @@
+{% style %}
+  switch-button {
+    --switch-width: {{settings.switch_width}}px;
+    --switch-border-width: {{settings.switch_border_width}}px;
+    --button-width: {{settings.button_width}}px;
+    --button-margin: {{settings.button_margin}}px;
+    --all-margin: calc(2 * (var(--switch-border-width) + var(--button-margin)));
+    --button-translate: calc(
+      var(--switch-width) - var(--all-margin) - var(--button-width)
+    );
+    --switch-height: calc(var(--button-width) + var(--all-margin));
+    --background-width: calc(var(--switch-width) - var(--all-margin));
+    --shine-color:127, 255, 0;
+  }
+{% endstyle %}
+
+<switch-button>
+  <input
+    id="switch-button"
+    class="switch-button switch-shine"
+    type="checkbox"
+    checked="{{ checked }}"
+  >
+  <!-- will be hidden -->
+  <label for="switch-button"></label>
+  <!-- toggle, will activate checkbox -->
+</switch-button>
