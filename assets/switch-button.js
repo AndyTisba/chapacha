@@ -2,11 +2,9 @@
 class SwitchButton extends HTMLElement {
   constructor() {
     super();
-
     this.addEventListener("click", this.onClick.bind(this));
     this.input = this.querySelector("input");
-    this.cardImages = document.querySelectorAll(".card__inner img");
-    this.imageWidths = ["165w", "360w", "533w", "720w", "940w", "1000w"];
+    this.this.imageWidths = ["165w", "360w", "533w", "720w", "940w", "1000w"];
   }
 
   toggle() {
@@ -16,7 +14,8 @@ class SwitchButton extends HTMLElement {
   onClick(event) {
     event.preventDefault();
     this.toggle();
-    this.cardImages.forEach((image) => {
+    const cardImages = document.querySelectorAll(".card__inner img");
+    cardImages.forEach((image) => {
       const newSrc = image.dataset[this.input.checked ? "src-1" : "src-2"];
       const newSrcSet = this.imageWidths
         .map((width) => `${newSrc} ${width}`)
