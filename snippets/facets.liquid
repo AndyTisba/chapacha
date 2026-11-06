@@ -459,7 +459,7 @@
             {%- endfor -%}
             {%- if enable_switch -%}
               {% comment %} Switch the default asset {% endcomment %}
-              {% render 'switch-button', checked="true" %}
+              {% render 'switch-button' %}
             {% endif %}
             <noscript>
               <button type="submit" class="facets__button-no-js button button--secondary">
@@ -1200,3 +1200,13 @@
     </facet-filters-form>
   {%- endif -%}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% render ''switch-button'', checked="true" %}'
+  to: "{% render 'switch-button' %}"
+  position: 25656..25684
+{% endcomment %}
